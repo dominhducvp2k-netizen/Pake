@@ -191,6 +191,9 @@ jobs:
           if ("${{ inputs.hide_title_bar }}" -eq "true") {
             $args += "--hide-title-bar"
           }
+          
+          $args += "--inject", "hotkey.js"
+          $args += "--activation-shortcut", "CmdOrControl+Shift+C"
 
           Write-Host "Running: node dist/cli.js $($args -join ' ')"
           node dist/cli.js $args
